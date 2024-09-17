@@ -1,8 +1,5 @@
-'''Python_Sort_Project
-Author: Jack Reed
-Ask for type of table, generate 2000 points of type.
-Then sort through code, give choice of displaying the sorted
-and unsorted data. '''
+'''ToH_Palindromes_Proj
+Author: Jack Reed'''
 
 import timeit
 import re
