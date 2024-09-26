@@ -109,23 +109,23 @@ FUNCTION main():
 ```
 
 ## 2. UML
-+--------------------------------+
-|        MovieSearchProgram      |
-+--------------------------------+
-| - movies: List[Movie]         |
-+--------------------------------+
-| + load_movies(file_path)       |
-| + save_movies(file_path, movies)|
-| + display_menu()               |
-| + display_search_menu()        |
-| + display_sort_menu()          |
-| + display_search_algorithm_menu()|
-| + display_sort_algorithm_menu() |
-| + search_movies(movies)        |
-| + sort_movies(movies)          |
-| + manager_mode(movies)         |
-| + main()                       |
-+--------------------------------+
+    +--------------------------------+
+    |        MovieSearchProgram      |
+    +--------------------------------+
+    | - movies: List[Movie]         |
+    +--------------------------------+
+    | + load_movies(file_path)       |
+    | + save_movies(file_path, movies)|
+    | + display_menu()               |
+    | + display_search_menu()        |
+    | + display_sort_menu()          |
+    | + display_search_algorithm_menu()|
+    | + display_sort_algorithm_menu() |
+    | + search_movies(movies)        |
+    | + sort_movies(movies)          |
+    | + manager_mode(movies)         |
+    | + main()                       |
+    +--------------------------------+
 
 ## 3. Flowchart
     +---------------------------+
