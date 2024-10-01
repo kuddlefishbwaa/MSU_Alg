@@ -135,6 +135,32 @@ FUNCTION main():
     | + manager_mode(movies)         |
     | + main()                       |
     +--------------------------------+
+                    ^ -----------------------------------
+                    |                                    |
+    +-----------------------------------------------+    |
+    |  Utility:SearchAlgorithms                     |    |
+    +-----------------------------------------------+    |
+    | - List                                        |    |
+    | - Key                                         |    |
+    +-----------------------------------------------+    |
+    | + linear_search(data, target_value, key=None) |    |
+    | + binary_search(data, target_value, key=None) |    |
+    +-----------------------------------------------+    |
+                                                         |
+    +-----------------------------------------------------+
+    |  Utility:SortAlgorithms                             |
+    +-----------------------------------------------------+
+    | - List                                              |
+    | - Key                                               |
+    +-----------------------------------------------------+
+    | + quick_sort(data, low_index, high_index, key=None) |
+    | + partition(data, low_index, high_index, key=None)  |
+    | + bubble_sort(data, key=None)                       |
+    | + selection_sort(data, key=None)                    |
+    | + merge_sort(data, left_index, right_index, key=None) |
+    | + merge(data, left_index, middle_index, right_index, key=None)  |
+    | + insertion_sort(data, key=None)                    |
+    +-----------------------------------------------------+
 
 ## 3. Flowchart
     +---------------------------+
