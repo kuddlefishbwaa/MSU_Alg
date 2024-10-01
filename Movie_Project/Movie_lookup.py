@@ -1,9 +1,26 @@
 import json
 import timeit  # Importing timeit to measure execution time
+import os
 from Utility import SearchAlgorithms, SortAlgorithms
 
 # Define a simple password for Manager Mode
 MANAGER_PASSWORD = "admin123"  # This can be modified to change the Manager password
+def validate_choice(prompt, valid_options):
+    """
+    Validates the user's choice against the valid options.
+
+    Args:
+        prompt (str): The message to display when asking for input.
+        valid_options (list): A list of valid input options.
+
+    Returns:
+        str: The user's valid choice.
+    """
+    while True:
+        choice = input(prompt)
+        if choice in valid_options:
+            return choice
+        print(f"Invalid input! Please select one of the following options: {', '.join(valid_options)}")
 
 def load_movies(file_path):
     """
@@ -83,10 +100,10 @@ def search_movies(movies):
         movies (list): The list of movies to search through.
     """
     display_search_menu()
-    choice = input("Select a search option (1-4): ")
+    choice = validate_choice("Select an option (1-4): ", ['1', '2', '3', '4'])
 
     display_search_algorithm_menu()
-    algo_choice = input("Select a search algorithm (1-2): ")
+    algo_choice = validate_choice("Select an option (1-2): ", ['1', '2'])
 
     if choice == '1':
         title = input("Enter the movie title to search for: ")
@@ -172,22 +189,32 @@ def sort_movies(movies):
         movies (list): The list of movies to sort.
     """
     display_sort_menu()
-    choice = input("Select a sorting option (1-4): ")
+    choice = validate_choice("Select a sorting option (1-4): ", ['1', '2', '3', '4'])
 
     display_sort_algorithm_menu()
-    algo_choice = input("Select a sorting algorithm (1-5): ")
+    algo_choice = validate_choice("Select a sorting algorithm (1-5): ", ['1', '2', '3', '4', '5'])
+
+    # Determine the key for sorting based on user's choice
+    key_mapping = {
+        '1': 'title',
+        '2': 'genre',
+        '3': 'actor',
+        '4': 'release_date'
+    }
+    
+    sort_key = key_mapping[choice]  # Get the sort key based on user selection
 
     if algo_choice == '1':
         # Measure the time taken for quick sort
-        time_taken = timeit.timeit(lambda: SortAlgorithms.quick_sort(movies, 0, len(movies) - 1, key='title'), number=1)
+        time_taken = timeit.timeit(lambda: SortAlgorithms.quick_sort(movies, 0, len(movies) - 1, key=sort_key), number=1)
     elif algo_choice == '2':
-        time_taken = timeit.timeit(lambda: SortAlgorithms.bubble_sort(movies, key='genre'), number=1)
+        time_taken = timeit.timeit(lambda: SortAlgorithms.bubble_sort(movies, key=sort_key), number=1)
     elif algo_choice == '3':
-        time_taken = timeit.timeit(lambda: SortAlgorithms.selection_sort(movies, key='actor'), number=1)
+        time_taken = timeit.timeit(lambda: SortAlgorithms.selection_sort(movies, key=sort_key), number=1)
     elif algo_choice == '4':
-        time_taken = timeit.timeit(lambda: SortAlgorithms.merge_sort(movies, 0, len(movies) - 1, key='release_date'), number=1)
+        time_taken = timeit.timeit(lambda: SortAlgorithms.merge_sort(movies, 0, len(movies) - 1, key=sort_key), number=1)
     elif algo_choice == '5':
-        time_taken = timeit.timeit(lambda: SortAlgorithms.insertion_sort(movies, key='title'), number=1)
+        time_taken = timeit.timeit(lambda: SortAlgorithms.insertion_sort(movies, key=sort_key), number=1)
     else:
         print("Invalid choice! Returning to the main menu.")
         return
@@ -254,7 +281,8 @@ def main():
     """
     Main function to execute the Movie Search Program.
     """
-    movies = load_movies('movies.json')
+    MOVIES_FILE_PATH = os.path.join(os.path.dirname(__file__), 'movies.json')
+    movies = load_movies(MOVIES_FILE_PATH)
     if not movies:
         return  # Exit if movies could not be loaded
 
