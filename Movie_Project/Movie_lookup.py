@@ -5,6 +5,7 @@ from Utility import SearchAlgorithms, SortAlgorithms
 
 # Define a simple password for Manager Mode
 MANAGER_PASSWORD = "admin123"  # This can be modified to change the Manager password
+
 def validate_choice(prompt, valid_options):
     """
     Validates the user's choice against the valid options.
