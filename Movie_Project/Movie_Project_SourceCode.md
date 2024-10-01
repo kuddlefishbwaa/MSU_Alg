@@ -7,6 +7,18 @@ The `MovieSearchProgram` class provides functionalities for searching, sorting, 
 
 ### Methods:
 
+### `validate_choice(prompt, valid_options)`
+
+- **Purpose:**  
+  Compare and validate input to intended input
+  
+- **Input:**  
+  - `prompt` (str): The prompt for the input statement.
+  - `valid_options` (list): List of valid inputs for the prompt.
+  
+- **Output:**  
+  - Validates the input for the menu so that the user doesn't give an invalid input.
+
 ### `load_movies(file_path)`
 - **Purpose:**  
   Loads movies from a specified JSON file.
