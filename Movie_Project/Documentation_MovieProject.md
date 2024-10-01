@@ -19,6 +19,14 @@ The problem is to develop a Movie Search Program that allows users to search for
 ### d. Pseudocode
 
 ```plaintext
+FUNCTION validate_choice(prompt, valid_options):
+    WHILE:
+        INPUT prompt
+            IF choice in valid_options
+                CONTINUE
+            ELSE
+                PRINT Invalid input try again
+
 FUNCTION load_movies(file_path):
     TRY:
         OPEN file at file_path
@@ -114,6 +122,7 @@ FUNCTION main():
     +--------------------------------+
     | - movies: List[Movie]         |
     +--------------------------------+
+    | + validate_choice(prompt, valid_options)|
     | + load_movies(file_path)       |
     | + save_movies(file_path, movies)|
     | + display_menu()               |
