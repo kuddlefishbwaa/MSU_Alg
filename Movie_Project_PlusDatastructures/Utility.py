@@ -164,6 +164,7 @@ class SearchAlgorithms:
                 if search_by in movie_dict and movie_dict[search_by] == target_value:
                     return movie_dict  # Return the movie dict if found
         return -1  # Return None if no movie matches the criteria
+    
     @staticmethod
     def binary_search(data, target_value, key=None):
         """
