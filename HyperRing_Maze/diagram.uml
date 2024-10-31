@@ -1,0 +1,19 @@
+@startuml
+
+class HyperRingGraph {
+    +create_hyper_ring_graph(n: int, max_edges: int): Graph
+    +create_connectivity_matrix(G: Graph): DataFrame
+    +perform_dfs_from_matrix(matrix: Array): Array
+    +perform_bfs_from_matrix(matrix: Array): Array
+    +animate_search(matrix: Array, traversal_order: Array, algorithm: String): void
+    +main(): void
+}
+
+class Maze {
+    +generate_maze(rows: int, cols: int): (Graph, List, List)
+    +display_maze(maze: Graph, rows: int, cols: int): void
+    +create_connectivity_matrix(maze: Graph): DataFrame
+    +perform_search(G: Graph, algorithm: String): List
+    +main(): void
+}
+@enduml
